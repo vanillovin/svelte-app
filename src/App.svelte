@@ -1,36 +1,25 @@
 <script>
-	let name = 'Foods';
-	let foods = ['떡볶이', '마카롱', '초밥', '샐러드', '피자', '치킨'];
-	let toggle = false;
-	function changeToggle() {
-		toggle = !toggle;
-	}
-	function deleteFood(food) {
-		alert(`${food} 냠냠!`);
-		foods = foods.filter((oldFood) => oldFood !== food);
-	}
+	let text = 'text';
 </script>
 
-<button on:click={changeToggle}>Toggle {toggle ? 'off' : 'on'}</button>
-{#if toggle}
-	<h1 class={toggle ? 'active' : ''}>Hello {name}!</h1>
-	<input type="txt" bind:value={name} />
-{:else}
-	<div>No name!</div>
-{/if}
-
-<ul>
-	{#each foods as food}
-		<li>
-			{food}
-			<button on:click={() => deleteFood(food)}>Eat it!</button>
-		</li>
-	{/each}
-</ul>
+<h1>Hello {text}!</h1>
+<input
+	type="text"
+	value={text}
+	on:input={(e) => {
+		text = e.target.value;
+	}}
+/>
+<input bind:value={text} />
+<button
+	on:click={() => {
+		text = ':>';
+	}}>click me</button
+>
 
 <style>
-	.active {
-		color: white;
-		background-color: royalblue;
+	input {
+		padding: 2px;
+		border: 2px solid royalblue;
 	}
 </style>
