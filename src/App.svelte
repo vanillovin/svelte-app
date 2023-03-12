@@ -1,25 +1,10 @@
 <script>
-	let text = 'text';
+	import Sweets from './components/Sweets.svelte';
+	const sweets = ['마카롱', '쿠키', '스콘', '다쿠아즈', '타르트', '케이크', '와플'];
 </script>
 
-<h1>Hello {text}!</h1>
-<input
-	type="text"
-	value={text}
-	on:input={(e) => {
-		text = e.target.value;
-	}}
-/>
-<input bind:value={text} />
-<button
-	on:click={() => {
-		text = ':>';
-	}}>click me</button
->
+<Sweets {sweets} />
+<Sweets title="Reverse Sweets" sweets={[...sweets].reverse()} />
 
 <style>
-	input {
-		padding: 2px;
-		border: 2px solid royalblue;
-	}
 </style>
