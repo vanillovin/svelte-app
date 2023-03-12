@@ -1,6 +1,5 @@
 <script>
-	export let name = '';
+	import { storeName } from '../../store';
 </script>
 
-<h1>Child</h1>
-<h2>{name}</h2>
+<h1>Child {$storeName}</h1>
