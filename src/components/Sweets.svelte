@@ -1,6 +1,6 @@
 <script lang="ts">
 	// Props
-	export const title = 'Sweets';
+	export let title = 'Sweets';
 	export const sweets: string[] = [];
 </script>
 

@@ -1,10 +1,11 @@
 <script>
-	import Sweets from './components/Sweets.svelte';
-	const sweets = ['마카롱', '쿠키', '스콘', '다쿠아즈', '타르트', '케이크', '와플'];
+	import Parent from './components/Parent.svelte';
+
+	let name = 'World';
 </script>
 
-<Sweets {sweets} />
-<Sweets title="Reverse Sweets" sweets={[...sweets].reverse()} />
+<h1>Hello {name}!</h1>
+<Parent {name} />
 
 <style>
 </style>
