@@ -1,47 +1,26 @@
 <script lang="ts">
-	let active = false;
-	const style = {
-		r: 'rosybrown',
-		w: '#fff',
-		letterSpacing: 'letter-spacing: .25rem'
-	};
+	import Foods from './components/Foods.svelte';
 </script>
 
-<section>
-	<h1 style="background-color: {style.r}; color: {style.w}; {style.letterSpacing}">Hello</h1>
-	<!-- class directive(지시어). 마치 클래스 속성처럼 작성 -->
-	<!-- active 라는 클래스 이름은 어떠한 데이터에 의해 붙거나 붙지 않음 -->
-	<div class:active>Hello</div>
-	<button
-		on:click={() => {
-			active = !active;
-		}}>Toggle!</button
-	>
-</section>
+<h2 class="text-2xl">App.svelte</h2>
+<ul class="foods">
+	<li>샐러드</li>
+	<li>샌드위치</li>
+	<li>햄버거</li>
+</ul>
+<hr />
+<Foods />
 
 <style>
-	div {
-		color: beige;
-		width: 18.75rem;
-		height: 18.75rem;
-		background: cornflowerblue;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		border-radius: 0.625rem;
-	}
-	button {
-		padding: 0.25rem;
-		margin: 0.25rem;
-		border: 0.125rem solid black;
-		font-weight: 600;
-	}
-	button:hover {
-		color: white;
-		background-color: black;
-	}
-	.active {
-		color: black;
-		background: cadetblue;
+	/**
+   * 컴포넌트에 작성하는 style 내에서 작성하는 모든 스타일 들은
+   * 기본적으로 컴포넌트 내부의 각각 요소들에만 영향을 줌 
+	 * => 자신이 작성된 그 컴포넌트 내부에서만 스타일이 유효하다
+	 * style hash를 통해 유효범위를 만들고 스타일이 외부에 영향을 미치는 것을 막음
+   * :global() 수식어(Modifier)를 작성하면 외부에도 영향을 줄 수 있음
+	*/
+
+	:global(.foods) {
+		color: red;
 	}
 </style>
